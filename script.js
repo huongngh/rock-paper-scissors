@@ -3,23 +3,34 @@ const winKey = {
     paper: "rock",
     scissors: "paper",
 }
-const computerChoice = Object.keys(winKey)
+const computerKey = Object.keys(winKey)
 function getComputerChoice(){
-    let randomIndex = Math.floor(Math.random()*computerChoice.length);
-    return computerChoice[randomIndex]
+    let randomIndex = Math.floor(Math.random()*computerKey.length);
+    return computerKey[randomIndex]
 }
-console.log(getComputerChoice());
 
 function getHumanChoice(){
     let humanChoice = prompt("Rock, Paper or Scissors?");
     return humanChoice
 }
-console.log(getHumanChoice);
 
-humanScore = 0;
-computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
-function playRound(humanChoice, computerChoice){
-    humanChoice = getHumanChoice();
-    computerChoice  = getcomputerChoice();
+function playRound(humanSelection, computerSelection){
+    if (humanSelection.toLowerCase() == computerSelection){
+        return "It is a tie"
+    }
+    else if (winKey[humanSelection.toLowerCase()] == computerSelection){
+        humanScore += 1;
+        return "You win this round! " + humanSelection + " beats " + computerSelection + " !"
+    }
+    computerScore += 1;
+    return "The computer wins! " + computerSelection +" beats " + humanSelection + " !"
 }
+    
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+console.log(playRound(humanSelection, computerSelection));
+console.log(humanScore);
+console.log(computerScore);

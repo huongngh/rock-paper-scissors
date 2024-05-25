@@ -3,7 +3,6 @@ let humanScore = 0;
 let computerScore = 0;
 
 const btnRock = document.querySelector("#rock");
-console.log(btnRock);
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
 
